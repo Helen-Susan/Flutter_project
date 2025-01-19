@@ -8,6 +8,8 @@ class MedicalDosage extends StatefulWidget {
 }
 
 class _MedicalDosageState extends State<MedicalDosage> {
+  int currentPageIndex = 0;
+
   // Data structure to hold medicine information by time
   final Map<String, List<Medicine>> medicineSchedule = {
     'Morning': [
