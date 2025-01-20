@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medical/screens/alarm.dart';
 import 'package:medical/screens/doc.dart';
 import 'package:medical/screens/medical_dosage.dart';
+import 'package:medical/screens/navigation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: MedicalDosage(),
+      home: BottomNav(),
     );
   }
 }
