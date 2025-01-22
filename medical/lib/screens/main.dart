@@ -7,6 +7,7 @@ import 'package:medical/screens/medical_dosage.dart';
 import 'package:medical/screens/profilepage.dart';
 import 'package:medical/screens/pharmacy.dart';
 import 'package:medical/screens/login_page.dart';
+import 'package:medical/screens/navigation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: MedicalDosage(),
     );
   }
 }

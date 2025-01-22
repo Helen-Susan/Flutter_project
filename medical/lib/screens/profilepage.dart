@@ -23,9 +23,9 @@ class _Page1State extends State<ProfilePage> {
           '- You completed 85% of reminders this week.\n- No missed doses—keep it up!',
     },
   ];
-  int pageIndex = 0;
+  /*int pageIndex = 0;
   final pages = [ProfilePage(), Settings()];
-
+*/
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -233,7 +233,7 @@ class _Page1State extends State<ProfilePage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
+        /* bottomNavigationBar: BottomNavigationBar(
           currentIndex: pageIndex,
           onTap: (index) {
             setState(() {
@@ -256,7 +256,7 @@ class _Page1State extends State<ProfilePage> {
               label: 'Settings',
             ),
           ],
-        ),
+        ),*/
       ),
     );
   }
