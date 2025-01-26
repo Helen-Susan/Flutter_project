@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MedicalDosage extends StatefulWidget {
@@ -8,12 +10,13 @@ class MedicalDosage extends StatefulWidget {
 }
 
 class _MedicalDosageState extends State<MedicalDosage> {
-  int currentPageIndex = 0;
+  int currentPageIndex = 0; // Variables to store fetched Firestore data
+  List<Map<String, dynamic>> details1 = [];
 
   // Data structure to hold medicine information by time
   final Map<String, List<Medicine>> medicineSchedule = {
     'Morning': [
-      Medicine(name: "Vitamin D", dosage: "10mg"),
+      Medicine(name: "Allergy", dosage: "10mg"),
       Medicine(name: "Blood Pressure Med", dosage: "5mg"),
     ],
     'Afternoon': [

@@ -1,8 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:link_text/link_text.dart';
 import 'package:medical/screens/auth_service.dart';
+import 'package:medical/screens/medical_dosage.dart';
+import 'package:medical/screens/navigation.dart';
 import 'package:medical/screens/profilepage.dart';
+import 'package:medical/screens/sign_up.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -29,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
       log("User logged in");
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const ProfilePage()),
+        MaterialPageRoute(builder: (context) => const BottomNav()),
       );
     } else {
       log("Login failed :User is null");
@@ -75,6 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelText: "Enter your email/phone number",
                     border: OutlineInputBorder(),
                   ),
+                  obscureText: true,
                 ),
                 SizedBox(
                   height: 30.0,
@@ -101,10 +106,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text('Forgot Password?'),
                 ),
                 SizedBox(height: 10),
-                Text(
-                  "Don\'t have an account? Sign up",
-                  style: TextStyle(fontSize: 12),
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Don\'t have an account?'),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUp()),
+                        );
+                      },
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.blue,
+                            decoration: TextDecoration.underline),
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

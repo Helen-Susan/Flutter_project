@@ -20,10 +20,10 @@ class _BottomNavState extends State<BottomNav> {
   List<Widget> _buildScreens() {
     return [
       MedicalDosage(),
-      Document_upload(),
+      FilePickerDemo(),
       ProfilePage(),
       PharmacyScreen(),
-      Settings()
+      Setting()
     ];
   }
 

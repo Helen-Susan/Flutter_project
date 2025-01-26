@@ -8,6 +8,8 @@ import 'package:medical/screens/profilepage.dart';
 import 'package:medical/screens/pharmacy.dart';
 import 'package:medical/screens/login_page.dart';
 import 'package:medical/screens/navigation.dart';
+import 'package:medical/screens/sign_up.dart';
+import 'package:medical/screens/update.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +33,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // This widget is the root of your application.ga
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: MedicalDosage(),
+      home: LoginScreen(),
     );
   }
 }
