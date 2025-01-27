@@ -60,6 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
             return {
               'name': doc['name'] ?? 'No Name',
               'pharmacy': doc['pharmacy'] ?? 'No Pharmacy',
+              'pharmacy2': doc['pharamacy2'],
               'medcine1': doc['med1'] ?? 'No Medicine 1',
               'medicine2': doc['med2'] ?? 'No Medicine 2',
               'doc1': doc['doctor1'] ?? 'No Doctor 1',
@@ -234,21 +235,37 @@ class _ProfilePageState extends State<ProfilePage> {
                     details1.isNotEmpty
                         ? Card(
                             child: Column(
-                              children: details1.map((details) {
-                                return ListTile(
-                                  title: Text(details['pharmacy']),
-                                  trailing: SizedBox(
-                                    width: 60,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: const [
-                                        Icon(Icons.message),
-                                        Icon(Icons.call),
-                                      ],
+                              children: details1.expand((details) {
+                                return [
+                                  ListTile(
+                                    title: Text(details['pharmacy']),
+                                    trailing: SizedBox(
+                                      width: 60,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Icon(Icons.message),
+                                          Icon(Icons.call),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                );
+                                  ListTile(
+                                    title: Text(details['pharmacy2']),
+                                    trailing: SizedBox(
+                                      width: 60,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Icon(Icons.message),
+                                          Icon(Icons.call),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ];
                               }).toList(),
                             ),
                           )
