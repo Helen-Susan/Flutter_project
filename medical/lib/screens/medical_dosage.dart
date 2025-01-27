@@ -9,8 +9,6 @@ class MedicalDosage extends StatefulWidget {
   State<MedicalDosage> createState() => _MedicalDosageState();
 }
 
-class _MedicalDosageState extends State<MedicalDosage> {
-  int currentPageIndex = 0; // Variables to store fetched Firestore data
 
   // ariables to store fetched Firestore data
   List<Map<String, dynamic>> details1 = [];
@@ -34,22 +32,6 @@ class _MedicalDosageState extends State<MedicalDosage> {
             .where('uid', isEqualTo: userId1)
             .get();
 
-        print('Fetched details count: ${details.docs.length}');
-
-        // Check if documents exist
-        if (details.docs.isNotEmpty) {
-          // Map the Firestore documents into a list
-          final doctorList = details.docs.map((doc) {
-            print('Document data: ${doc.data()}');
-            return {
-              'medimorning': doc['med1'] ?? 'No Medicine',
-              'med2mornig': doc['med2'] ?? 'No Pharmacy',
-              'med3': doc['med1'] ?? 'No Medicine 1',
-              'medicine2': doc['med2'] ?? 'No Medicine 2',
-              'doc1': doc['doctor1'] ?? 'No Doctor 1',
-              'doc2': doc['doctor2'] ?? 'No Doctor 2',
-            };
-          }).toList();
 
           // Debugging output to check the doctor list
           print('Doctor List: $doctorList');
