@@ -35,11 +35,11 @@ class _UpdateState extends State<Update> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(240, 248, 255, 1),
+      // backgroundColor: Color.alice,
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(240, 248, 255, 1),
+        backgroundColor: Colors.blueAccent,
         title: const Text(
-          "Medical App",
+          "Medicare",
           style: TextStyle(fontFamily: 'Roboto', color: Colors.black),
         ),
         iconTheme: const IconThemeData(color: Colors.black),
@@ -51,6 +51,8 @@ class _UpdateState extends State<Update> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                Text("Update your profile ",
+                    style: TextStyle(color: Color.fromRGBO(175, 219, 245, 6))),
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: namController,

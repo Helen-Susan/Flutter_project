@@ -11,7 +11,74 @@ class MedicalDosage extends StatefulWidget {
 
 class _MedicalDosageState extends State<MedicalDosage> {
   int currentPageIndex = 0; // Variables to store fetched Firestore data
+
+  // ariables to store fetched Firestore data
   List<Map<String, dynamic>> details1 = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchDetailsFromFirestore();
+  }
+
+  // Fetch data based on authenticated user
+  Future<void> fetchDetailsFromFirestore() async {
+    try {
+      // Get the current user UID
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final userId1 = user.uid;
+        print('Current User ID: $userId1');
+        final details = await FirebaseFirestore.instance
+            .collection('Register')
+            .where('uid', isEqualTo: userId1)
+            .get();
+
+        print('Fetched details count: ${details.docs.length}');
+
+        // Check if documents exist
+        if (details.docs.isNotEmpty) {
+          // Map the Firestore documents into a list
+          final doctorList = details.docs.map((doc) {
+            print('Document data: ${doc.data()}');
+            return {
+              'medimorning': doc['med1'] ?? 'No Medicine',
+              'med2mornig': doc['med2'] ?? 'No Pharmacy',
+              'med3': doc['med1'] ?? 'No Medicine 1',
+              'medicine2': doc['med2'] ?? 'No Medicine 2',
+              'doc1': doc['doctor1'] ?? 'No Doctor 1',
+              'doc2': doc['doctor2'] ?? 'No Doctor 2',
+            };
+          }).toList();
+
+          // Debugging output to check the doctor list
+          print('Doctor List: $doctorList');
+
+          setState(() {
+            details1 = doctorList;
+          });
+        } else {
+          print("No documents found for the user");
+          // Optionally, show a user-friendly message in the UI
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('No user details found')),
+          );
+        }
+      } else {
+        print("No user logged in");
+        // Optionally, handle unauthenticated state
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Please log in')),
+        );
+      }
+    } catch (e) {
+      print('Error fetching details from Firestore: $e');
+      // Show error to user
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error fetching user details')),
+      );
+    }
+  }
 
   // Data structure to hold medicine information by time
   final Map<String, List<Medicine>> medicineSchedule = {

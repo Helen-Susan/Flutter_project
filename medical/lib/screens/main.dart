@@ -10,6 +10,7 @@ import 'package:medical/screens/login_page.dart';
 import 'package:medical/screens/navigation.dart';
 import 'package:medical/screens/sign_up.dart';
 import 'package:medical/screens/update.dart';
+import 'package:medical/screens/user_profile.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: SignUp(),
     );
   }
 }
