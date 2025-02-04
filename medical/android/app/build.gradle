@@ -6,6 +6,7 @@ plugins {
     id 'com.google.gms.google-services' // For Firebase
 }
 
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file("local.properties")
 if (localPropertiesFile.exists()) {
@@ -37,7 +38,7 @@ android {
     defaultConfig {
         // Specify your own unique Application ID
         applicationId = "com.example.medical"
-        minSdk = flutter.minSdkVersion
+        minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
@@ -61,4 +62,3 @@ dependencies {
     // Add other Firebase dependencies if needed
     // Example: implementation 'com.google.firebase:firebase-analytics'
 }
-cd
